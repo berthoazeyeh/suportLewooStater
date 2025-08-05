@@ -48,5 +48,18 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	    <!-- BLUETOOTH -->
+    <key>NSBluetoothAlwaysUsageDescription</key>
+    <string>Cette app utilise Bluetooth pour se connecter aux appareils</string>
+    
+    <key>NSBluetoothPeripheralUsageDescription</key>
+    <string>Cette app utilise Bluetooth pour communiquer avec d'autres appareils</string>
+    
+    <!-- LOCALISATION -->
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>Cette app a besoin de votre localisation pour fonctionner</string>
+    
+    <key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+    <string>Cette app a besoin de votre localisation en arrière-plan</string>
 </dict>
 </plist>
