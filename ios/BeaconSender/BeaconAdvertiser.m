@@ -3,7 +3,7 @@
 @interface RCT_EXTERN_MODULE(BeaconAdvertiserModule, NSObject)
 
 RCT_EXTERN_METHOD(
-  startIBeacon:(NSString *)uuidStr
+  startIBeacon:(nonnull NSString *)uuidStr
   major:(nonnull NSNumber *)major
   minor:(nonnull NSNumber *)minor
   txPower:(nonnull NSNumber *)txPower
