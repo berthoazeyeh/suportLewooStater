@@ -24,7 +24,7 @@ platform :ios do
         }
     },
     export_team_id: ENV["APPLE_TEAM_ID"],
-    xcargs: "-allowProvisioningUpdates"
+    xcargs: "-allowProvisioningUpdates DEVELOPMENT_TEAM=#{ENV["APPLE_TEAM_ID"]}"
     )
 
     # Upload vers App Store Connect
@@ -55,7 +55,7 @@ platform :ios do
         }
     },
     export_team_id: ENV["APPLE_TEAM_ID"],
-    xcargs: "-allowProvisioningUpdates"
+    xcargs: "-allowProvisioningUpdates DEVELOPMENT_TEAM=#{ENV["APPLE_TEAM_ID"]}"
     )
   end
 end
