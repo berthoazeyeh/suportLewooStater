@@ -32,13 +32,13 @@ jobs:
           ruby-version: 3.2
 
 
-      - name: build iOS app
-        env:
-          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
-          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
-          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
-          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
-        run: npx react-native run-ios --scheme BeaconSender --configuration Release
+      # - name: build iOS app
+      #   env:
+      #     APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+      #     MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+      #     FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+      #     FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+      #   run: npx react-native run-ios --scheme BeaconSender --configuration Release
 
 
 
