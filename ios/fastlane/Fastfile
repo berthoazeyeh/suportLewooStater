@@ -11,17 +11,17 @@ platform :ios do
     )
 
     # Build de l'app avec workspace CocoaPods
-     build_app(
-      workspace: "BeaconSender.xcworkspace",
-      scheme: "BeaconSender",
-      export_method: "app-store",
-      output_directory: "./build",
-      output_name: "app.ipa",
-      export_options: {
+    build_app(
+    workspace: "BeaconSender.xcworkspace",
+    scheme: "BeaconSender",
+    export_method: "app-store",
+    archive_path: "./build/BeaconSender.xcarchive",
+    export_options: {
         provisioningProfiles: {
-          "com.beacon.stater.eneo" => "Eneo ST"
+        "com.bertho.beaconsender" => "NomExactDuProfilAppStore"
         }
-      }
+    },
+    xcargs: "-allowProvisioningUpdates"
     )
 
     # Upload vers App Store Connect
@@ -40,16 +40,16 @@ platform :ios do
     )
 
     build_app(
-      workspace: "BeaconSender.xcworkspace",
-      scheme: "BeaconSender",
-      export_method: "app-store",
-      output_directory: "./build",
-      output_name: "app.ipa",
-      export_options: {
+    workspace: "BeaconSender.xcworkspace",
+    scheme: "BeaconSender",
+    export_method: "app-store",
+    archive_path: "./build/BeaconSender.xcarchive",
+    export_options: {
         provisioningProfiles: {
-          "com.beacon.stater.eneo" => "Eneo ST"
+        "com.bertho.beaconsender" => "NomExactDuProfilAppStore"
         }
-      }
+    },
+    xcargs: "-allowProvisioningUpdates"
     )
   end
 end
