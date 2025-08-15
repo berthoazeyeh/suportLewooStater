@@ -1,0 +1,39 @@
+name: iOS Release
+
+on:
+  push:
+    branches:
+      - main  # Déclenche sur push vers main
+
+jobs:
+  build-and-release:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          cd ios
+          pod install
+          cd ..
+
+      - name: Setup Fastlane
+        run: sudo gem install fastlane -NV
+
+      - name: Build and deploy iOS app
+        env:
+          APP_STORE_CONNECT_API_KEY: ${{ secrets.APP_STORE_CONNECT_API_KEY }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          FASTLANE_USER: ${{ secrets.FASTLANE_USER }}
+          FASTLANE_PASSWORD: ${{ secrets.FASTLANE_PASSWORD }}
+        run: |
+          cd ios
+          fastlane release
