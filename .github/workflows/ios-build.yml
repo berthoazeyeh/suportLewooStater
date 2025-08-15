@@ -28,8 +28,8 @@ jobs:
       - name: Setup Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.4' # ou '16.0' si dispo
-          
+          xcode-version: '15.2' # ou '16.0' si dispo
+
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
