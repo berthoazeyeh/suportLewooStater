@@ -7,11 +7,12 @@ platform :ios do
   lane :release do
     # Incrementer le build number
     increment_build_number(
-      xcodeproj: "BeaconSender.xcodeproj"
+      xcodeproj: "BeaconSender.xcodeproj" # peut rester si increment_build_number nécessite le xcodeproj
     )
 
-    # Build de l'app
+    # Build de l'app avec workspace CocoaPods
     build_app(
+      workspace: "BeaconSender.xcworkspace",  # <-- important pour React Native
       scheme: "BeaconSender",
       export_method: "app-store",
       output_directory: "./build",
@@ -39,13 +40,14 @@ platform :ios do
     )
 
     build_app(
+      workspace: "BeaconSender.xcworkspace",
       scheme: "BeaconSender",
       export_method: "app-store",
       output_directory: "./build",
       output_name: "app.ipa",
       export_options: {
         provisioningProfiles: {
-          "com.votreentreprise.votreapp" => "NomExactDuProfilAppStore"
+          "com.beacon.stater.eneo" => "Eneo ST"
         }
       }
     )
