@@ -3,35 +3,35 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Build and upload to App Store Connect"
-  lane :release do
-    # Incrementer le build number
-    increment_build_number(
-      xcodeproj: "BeaconSender.xcodeproj" # peut rester si increment_build_number nécessite le xcodeproj
-    )
+#   desc "Build and upload to App Store Connect"
+#   lane :release do
+#     # Incrementer le build number
+#     increment_build_number(
+#       xcodeproj: "BeaconSender.xcodeproj" # peut rester si increment_build_number nécessite le xcodeproj
+#     )
 
-    # Build de l'app avec workspace CocoaPods
-    build_app(
-      workspace: "BeaconSender.xcworkspace",  # <-- important pour React Native
-      scheme: "BeaconSender",
-      export_method: "app-store",
-      output_directory: "./build",
-      output_name: "app.ipa",
-      export_options: {
-        provisioningProfiles: {
-          "com.votreentreprise.votreapp" => "NomExactDuProfilAppStore"
-        }
-      }
-    )
+#     # Build de l'app avec workspace CocoaPods
+#     build_app(
+#       workspace: "BeaconSender.xcworkspace",  # <-- important pour React Native
+#       scheme: "BeaconSender",
+#       export_method: "app-store",
+#       output_directory: "./build",
+#       output_name: "app.ipa",
+#       export_options: {
+#         provisioningProfiles: {
+#           "com.votreentreprise.votreapp" => "NomExactDuProfilAppStore"
+#         }
+#       }
+#     )
 
-    # Upload vers App Store Connect
-    upload_to_app_store(
-      skip_metadata: true,
-      skip_screenshots: true,
-      ipa: "./build/app.ipa",
-      force: true
-    )
-  end
+#     # Upload vers App Store Connect
+#     upload_to_app_store(
+#       skip_metadata: true,
+#       skip_screenshots: true,
+#       ipa: "./build/app.ipa",
+#       force: true
+#     )
+#   end
 
   desc "Build only (for testing)"
   lane :build_only do
