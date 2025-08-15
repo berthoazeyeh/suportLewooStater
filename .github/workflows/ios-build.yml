@@ -8,6 +8,8 @@ on:
 jobs:
   build-and-release:
     runs-on: macos-13
+    env:
+      APPLE_TEAM_ID: ${{ vars.APPLE_TEAM_ID }} 
     # runs-on: macos-latest
     steps:
       - name: Checkout repository

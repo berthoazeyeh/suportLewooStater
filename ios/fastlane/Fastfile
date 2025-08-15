@@ -45,6 +45,8 @@ platform :ios do
     export_method: "app-store",
     archive_path: "./build/BeaconSender.xcarchive",
     export_options: {
+        signingStyle: "automatic",
+        teamID: ENV["APPLE_TEAM_ID"]
         provisioningProfiles: {
         "com.bertho.beaconsender" => "NomExactDuProfilAppStore"
         }
