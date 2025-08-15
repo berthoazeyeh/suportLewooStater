@@ -23,6 +23,7 @@ platform :ios do
         "com.bertho.beaconsender" => "NomExactDuProfilAppStore"
         }
     },
+    export_team_id: ENV["APPLE_TEAM_ID"],
     xcargs: "-allowProvisioningUpdates"
     )
 
@@ -53,6 +54,7 @@ platform :ios do
         "com.bertho.beaconsender" => "NomExactDuProfilAppStore"
         }
     },
+    export_team_id: ENV["APPLE_TEAM_ID"],
     xcargs: "-allowProvisioningUpdates"
     )
   end
