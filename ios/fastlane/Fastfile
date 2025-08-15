@@ -1,3 +1,5 @@
+# ios/fastlane/Fastfile
+
 default_platform(:ios)
 
 platform :ios do
@@ -7,13 +9,7 @@ platform :ios do
     increment_build_number(
       xcodeproj: "BeaconSender.xcodeproj"
     )
-    
-    # Synchroniser les certificats
-    match(
-      type: "appstore",
-      readonly: true
-    )
-    
+
     # Build de l'app
     build_app(
       scheme: "BeaconSender",
@@ -22,11 +18,11 @@ platform :ios do
       output_name: "app.ipa",
       export_options: {
         provisioningProfiles: {
-          "com.votreentreprise.votreapp" => "match AppStore com.votreentreprise.votreapp"
+          "com.votreentreprise.votreapp" => "NomExactDuProfilAppStore"
         }
       }
     )
-    
+
     # Upload vers App Store Connect
     upload_to_app_store(
       skip_metadata: true,
@@ -35,23 +31,23 @@ platform :ios do
       force: true
     )
   end
-  
+
   desc "Build only (for testing)"
   lane :build_only do
     increment_build_number(
       xcodeproj: "BeaconSender.xcodeproj"
     )
-    
-    match(
-      type: "appstore",
-      readonly: true
-    )
-    
+
     build_app(
       scheme: "BeaconSender",
       export_method: "app-store",
       output_directory: "./build",
-      output_name: "app.ipa"
+      output_name: "app.ipa",
+      export_options: {
+        provisioningProfiles: {
+          "com.votreentreprise.votreapp" => "NomExactDuProfilAppStore"
+        }
+      }
     )
   end
 end
