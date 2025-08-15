@@ -25,6 +25,14 @@ jobs:
           pod install
           cd ..
 
+          
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2
+
+
+
       - name: Setup Fastlane
         run: sudo gem install fastlane -NV
 
