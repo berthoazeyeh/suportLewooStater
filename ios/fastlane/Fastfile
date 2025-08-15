@@ -12,7 +12,7 @@ platform :ios do
 
     # Build de l'app avec workspace CocoaPods
      build_app(
-      workspace: "ios/BeaconSender.xcworkspace"
+      workspace: "ios/BeaconSender.xcworkspace",
       scheme: "BeaconSender",
       export_method: "app-store",
       output_directory: "./build",
@@ -40,7 +40,7 @@ platform :ios do
     )
 
     build_app(
-      workspace: "ios/BeaconSender.xcworkspace"
+      workspace: "ios/BeaconSender.xcworkspace",
       scheme: "BeaconSender",
       export_method: "app-store",
       output_directory: "./build",
